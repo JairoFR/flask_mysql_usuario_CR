@@ -1,7 +1,10 @@
-
+import os
 from flask_app.config.mysqlconnection import connectToMySQL
 
-class User:   
+class User: 
+
+    modelo = 'users' #nombre de tabla
+
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -12,8 +15,8 @@ class User:
 
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM users;"
-        results = connectToMySQL('db_usuarios').query_db(query)
+        query = f"SELECT * FROM {cls.modelo};"
+        results = connectToMySQL(os.environ.get("BASE_DATOS_NOMBRE")).query_db(query)
         users = []
 
         for usuarios in results:
@@ -21,5 +24,5 @@ class User:
         return users
     @classmethod
     def save(cls, data ):
-        query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , NOW() , NOW() );"
-        return connectToMySQL('db_usuarios').query_db( query, data )     
+        query = f"INSERT INTO {cls.modelo} ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , NOW() , NOW() );"
+        return connectToMySQL(os.environ.get("BASE_DATOS_NOMBRE")).query_db( query, data )     

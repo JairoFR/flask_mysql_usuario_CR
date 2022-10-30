@@ -1,15 +1,15 @@
-# un cursor es el objeto que usamos para interactuar con la base de datos
+import os
 import pymysql.cursors
-# esta clase nos dará una instancia de una conexión a nuestra base de datos
+
 
 
 class MySQLConnection:
     def __init__(self, db):
 
         # cambiar el usuario y la contraseña según sea necesario
-        connection = pymysql.connect(host='localhost',
-                                    user='root',
-                                    password='19891954',
+        connection = pymysql.connect(host=os.environ.get("BASEDATOS_HOST"),
+                                    user=os.environ.get("USER"),
+                                    password= os.environ.get("PASSWORD"),
                                     db=db,
                                     charset='utf8mb4',
                                     cursorclass=pymysql.cursors.DictCursor, 

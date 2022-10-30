@@ -35,11 +35,15 @@
 ####  Detiene  el ambiente virtual en la terminal:
     $ exit
 
+####  Cargar el script de la base de datos a MySql:  
+
+    Ruta :  flask_app\docs\scripts.sql
 
 ### Abrir proyecto en un editor de codigo fuente
 
     1.- Abrir proyecto en visual studio code.
     2.- Ir a Python: select interpreter ctrl+shift+p.
     3.- Seleccionar el ambiente virtual creado con el nombre de la carpeta.
+    4.- Renombrar archivo .env_ejemplo a .env y agregar datos faltantes.
     4.- Abrir nueva terminal y escribir python server.py
 
