@@ -23,8 +23,8 @@
 #### Clona el repositorio del proyecto: 
 
 
-    $ git clone https://github.com/JairoFR/flask_contador.git
-    $ cd flask_contador.git
+    $ git clone https://github.com/JairoFR/flask_mysql_usuario_CR.git
+    $ cd flask_mysql_usuario_CR
 
 ####  Instala desde Pipfile los paquetes que vienen configurados: 
     $ pipenv install
