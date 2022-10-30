@@ -1,0 +1,46 @@
+{% extends "/base.html" %}
+{% block titulo %}{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="container mt-5">
+            <h1>Lista de Usuarios</h1>
+            <hr>
+            <table id="mi_tabla" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th> 
+                        <th>Nombre</th> 
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Inscrito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for amigo in template_users %}
+                    <tr>
+                        <td> {{amigo.id}}</td>
+                        <td> {{amigo.first_name}}</td>
+                        <td> {{amigo.last_name}}</td>
+                        <td> {{amigo.email}}</td>
+                        <td> {{amigo.created_at}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="{{url_for('crear_user')}}" role="button">Agregar usuario</a>
+</div>
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#mi_tabla').DataTable();
+    });
+</script>
+
+{% endblock %}
+
+{% endblock %}
